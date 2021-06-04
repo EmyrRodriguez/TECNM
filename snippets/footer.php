@@ -17,10 +17,13 @@
 <div class="container">
     <footer>    
         <div class="row">
-            <div class="col-xs-offset-6 col-xs-6">
-                <br />
-                <br />
-                <b class="text-right" style="color: white">&reg; DIRAC | Ingenieros Consultores<br/><br/><br/></b>
+            <div class="col-lg-12">
+                <div class="col-lg-offset-11 col-lg-1">
+                    <br />
+                    <br />
+                    <b style="color: white">TECNM<br/><br/><br/></b>
+                </div>
+
             </div>
         </div>
     </footer>

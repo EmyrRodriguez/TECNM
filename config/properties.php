@@ -14,10 +14,6 @@ define("UTILS_PATH", "http://" . DOMAIN . DIR_APP . "utils" . DIR_APP);
 
 
 /* * ****************************************************** */
-define("IMG_PATH", SITE_PATH . "/img/");
-define("CONTROLLER_PATH", SITE_PATH . "/controller/");
-define("MODEL_PATH", SITE_PATH . "/model/");
-
 
 //MENSAJES DE ERROR        
 define("SUCCESS_CODE", 0);

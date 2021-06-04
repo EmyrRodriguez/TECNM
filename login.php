@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 require_once 'snippets/header.php';
 ?>
 <!--<link href="http://148.243.10.117/sgi-dirac/dist/css/sweetalert2.min.css" rel="stylesheet" type="text/css" />
@@ -60,18 +64,19 @@ require_once 'snippets/header.php';
 </style>
 <body>
     <div class="wrapper">
+        <h3 class="text-center">Este sería el login para el usuario interno</h3>
         <form class="form-signin" name="loginForm" id="loginForm" method="POST">       
-            <!--<img class="center-block" src="http://148.243.10.117/sgi-dirac/dist/img/dirac.jpg" alt="Dirac Ingenieros Consultores" />-->
-            <img class="center-block" src="http://201.149.54.149/sgi-dirac/dist/img/dirac.jpg" alt="Dirac Ingenieros Consultores" />
+            <img class="center-block" src="img/bandera-britanica-r.png" alt="TECNM" />
             <input type="text" class="form-control" name="usuario" id="usuario" placeholder="Usuario" required="true" autofocus="" />
             <br />
             <input type="password" class="form-control" name="contrasenia" id="contrasenia" placeholder="Contrase&ntilde;a" required="true"/>      
             <label class="checkbox">
                 <input type="checkbox" name="remember" id="remember"> Recordar Usuario
             </label>
-            <input type="hidden" name="evento" id="evento" value="1" />
+            <input type="hidden" name="evento" id="evento" value="5" />
             <br />
             <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>   
+            <div id="msg"></div>
         </form>
     </div>
     <?php
@@ -88,11 +93,11 @@ require_once 'snippets/header.php';
                 event.preventDefault();
                 $.ajax({
                     type: "POST",
-                    url: '../sgi-dirac/controller/usrController.php',
+                    url: 'controller/controllerTECNM.php',
                     data: $('#loginForm').serializeArray(),
                     dataType: 'json',
                     beforeSend: function () {
-                        console.log("Login...");
+                        $("#msg").html('<div class="text-center"><i class="fa fa-spinner fa-spin" style="font-size:48px; color: #F49625"></i><p><b class="text-center"><b></p></div>');
                     },
                     success: function (response) {
                         if (response.errorCode === 0) {
@@ -113,7 +118,7 @@ require_once 'snippets/header.php';
                             showAlert(response.msg, "Redireccionando..", "success", "bounce");
                             //Redireccionamos al dashboard
                             setTimeout(function () {
-                                window.location.href = "registro_inspeccion.php";
+                                window.location.href = "catalogo_usuarios.php";
                             }, 1500);
 
                         } else {

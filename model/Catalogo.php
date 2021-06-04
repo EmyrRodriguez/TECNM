@@ -1,14 +1,8 @@
 <?php
 
-/*
- * Catalogo.php
- * @author FIGG - DIRAC
- * @copyright (c) 2017, DIRAC.
- * @description Clase de usuario para controlas funciones en SGI
- */
 
-require_once '../config/ConnectionDB.php';
-require_once '../config/properties.php';
+require_once realpath(dirname(__FILE__) . '/../config/ConnectionDB.php');
+require_once realpath(dirname(__FILE__) . '/../config/properties.php');
 
 class Catalogo implements JsonSerializable {
 
